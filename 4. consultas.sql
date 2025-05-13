@@ -75,11 +75,11 @@ FROM
 INNER JOIN TbOficio o ON p.Id_Oficio_Per = o.Id_Oficio
 INNER JOIN TbGrupo g ON o.Id_Grupo_Ofi = g.Id_Grupo;
 
---Listar Colegios y la cantidad de Cursos que ofrecen (esto requiere una subconsulta o una vista, pero simplificando para vinculación directa):
+--Listar Colegios y la cantidad de Cursos que ofrecen (esto requiere una subconsulta o una vista, pero simplificando para vinculaciï¿½n directa):
 
 SELECT
     col.Nombre_Col AS Colegio,
-    COUNT(pcc.Id_Curso_PCC) AS CantidadCursosOfertados -- Nota: Esto cuenta las inscripciones, no necesariamente los cursos únicos ofertados por el colegio directamente.
+    COUNT(pcc.Id_Curso_PCC) AS CantidadCursosOfertados -- Nota: Esto cuenta las inscripciones, no necesariamente los cursos ï¿½nicos ofertados por el colegio directamente.
 FROM
     TbColegio col
 LEFT JOIN TbPersonaColegioCurso pcc ON col.Id_Colegio = pcc.Id_Colegio_PCC
@@ -116,3 +116,6 @@ FROM
 LEFT JOIN TbPersonaColegioCurso pcc ON cur.Id_Curso = pcc.Id_Curso_PCC
 GROUP BY cur.Nombre_Cur
 ORDER BY cur.Nombre_Cur;
+
+-- Cantidad de su nombre comience con A
+select paterno_per,materno_per,nombre_per from TbPersona where Nombre_per like 'A%' order by Paterno_Per
