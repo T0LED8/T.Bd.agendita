@@ -119,3 +119,6 @@ ORDER BY cur.Nombre_Cur;
 
 -- Cantidad de su nombre comience con A
 select paterno_per,materno_per,nombre_per from TbPersona where Nombre_per like 'A%' order by Paterno_Per
+
+-- Cantidad de su nombre terminen  con A
+select paterno_per,materno_per,nombre_per from TbPersona where Nombre_per like '%A' order by Paterno_Per
